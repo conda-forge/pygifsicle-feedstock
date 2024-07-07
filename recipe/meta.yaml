@@ -1,5 +1,5 @@
 {% set name = "pygifsicle" %}
-{% set version = "1.0.7" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygifsicle-{{ version }}.tar.gz
-  sha256: 506ae0e4c76992a4fd6097da2d3f224a869ad504879fb1191d6af96c3d394ef8
+  sha256: dcef433520ace4c1136dfc7060e77042142a3dbd6bdb6a19bd9149ef5cbe7441
   patches:
     - remove_package_manager_installs.patch
 
@@ -39,7 +39,7 @@ about:
   home: https://github.com/LucaCappelletti94/pygifsicle
   summary: Python package wrapping the gifsicle library for editing and optimizing gifs.
   license: MIT
-  license_file: 
+  license_file:
     - LICENSE
 
 extra:
