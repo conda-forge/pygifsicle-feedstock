@@ -1,8 +1,8 @@
 diff --git a/setup.py b/setup.py
-index 41efc7f..29ffe8a 100644
+index 819c7fc..d6ecb3b 100644
 --- a/setup.py
 +++ b/setup.py
-@@ -45,30 +45,6 @@ linux_distributions_help = {
+@@ -44,31 +44,6 @@ linux_distributions_help = {
      "centos": "wget -O gifsicle.rpm https://centos.pkgs.org/7/epel-x86_64/gifsicle-1.91-1.el7.x86_64.rpm.html\nrpm -i gifsicle.rpm"
  }
  
@@ -13,12 +13,12 @@ index 41efc7f..29ffe8a 100644
 -        print("Installing gifsicle on Linux requires sudo!")
 -        distro = "default"
 -        if os.path.exists("/etc/os-release"):
--            with open("/etc/os-release", "r") as f:
+-            with open("/etc/os-release", "r", encoding='utf8') as f:
 -                for line in f:
 -                    if line.strip()[0:3] == "ID=":
 -                        distro = line.strip().split("=")[-1].lower()
 -                        break
--            print("The current system was detected to be {}".format(distro))
+-            print(f"The current system was detected to be {distro}")
 -            print("Please run the following command in your terminal:")
 -        else:
 -            print("The current distribution could not be detected")
@@ -30,6 +30,7 @@ index 41efc7f..29ffe8a 100644
 -        print("Please install the current gifsickle version from the website:")
 -        print("https://eternallybored.org/misc/gifsicle/")
 -        input("Press any key to continue with the installation of the python package.")
- 
+-
  test_deps = [
      "pytest",
+     "pytest-cov",
