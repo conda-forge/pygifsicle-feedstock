@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pygifsicle-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pygifsicle-{{ version }}.tar.gz
   sha256: dcef433520ace4c1136dfc7060e77042142a3dbd6bdb6a19bd9149ef5cbe7441
   patches:
     - remove_package_manager_installs.patch
@@ -14,16 +14,16 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
     - setuptools
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
     - setuptools
-    - python >=3.6
+    - python >={{ python_min }}
     - support_developer >=1.0.5
     - gifsicle
 
@@ -34,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/LucaCappelletti94/pygifsicle
